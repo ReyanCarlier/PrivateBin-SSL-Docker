@@ -37,3 +37,10 @@ echo "Launching the new container $CONTAINER_NAME..."
 sudo docker run -d --name $CONTAINER_NAME -p 443:443 -p 80:80 $IMAGE_NAME
 
 echo "PrivateBin deployment completed successfully."
+
+echo "Waiting a bit to copy SSL certificate in local..."
+sleep (15)
+
+sudo docker exec privatebin_withssl-container cat /etc/letsencrypt/live/$NEW_DOMAIN/fullchain.pem > etc/ssl/fullchain.pem
+sudo docker exec privatebin_withssl-container cat /etc/letsencrypt/live/privatebin.rainbowpartners.com/fullchain.pem > etc/ssl/fullchain.pem
+echo "SSL Certificate exported. Script ended."
