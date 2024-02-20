@@ -2,11 +2,16 @@
 
 Deploy PrivateBin with self-signed SSL with ease.
 
+## Prerequisites
+- Git
+- Docker
+
 ## Instructions
 
 ### First time
+- Clone this repository
 - Modify the variables `NEW_DOMAIN` and `NEW_EMAIL` in `run.sh`.
-- Start `run.sh`.
+- Execute `run.sh`.
 - Done!
 
 ### After generating an SSL certificate
