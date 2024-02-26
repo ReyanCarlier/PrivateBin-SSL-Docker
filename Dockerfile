@@ -1,6 +1,6 @@
 FROM php:7.4-fpm-alpine
 
-ENV RELEASE 1.0.0
+ENV RELEASE 1.2.1
 
 ARG DOMAIN_NAME="domain.com"
 ARG USER_EMAIL="john@doe.com"
