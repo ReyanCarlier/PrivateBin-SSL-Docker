@@ -74,7 +74,7 @@ COPY /etc/nginx/error.log /var/log/nginx/error.log
 
 # Copy Nginx configuration files
 COPY etc/nginx/nginx.conf /etc/nginx/nginx.conf
-COPY etc/nginx.conf.new /etc/nginx/nginx.conf.bak
+COPY etc/nginx/nginx.conf.new /etc/nginx/nginx.conf.bak
 
 # Copy Supervisor configuration file
 COPY etc/supervisord.conf /etc/supervisord.conf

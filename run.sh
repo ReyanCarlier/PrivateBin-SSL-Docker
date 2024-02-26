@@ -17,8 +17,8 @@ echo "Starting deployment of PrivateBin with SSL..."
 
 # Replace the domain name in Nginx configuration files
 echo "Updating the domain name in Nginx configuration files..."
-sed -i "s/domain.com/$NEW_DOMAIN/g" nginx.conf
-sed -i "s/domain.com/$NEW_DOMAIN/g" nginx.conf.new
+sed -i "s/domain.com/$NEW_DOMAIN/g" etc/nginx/nginx.conf
+sed -i "s/domain.com/$NEW_DOMAIN/g" etc/nginx/nginx.conf.new
 
 # Build the Docker image
 echo "Building Docker image $IMAGE_NAME..."
@@ -42,5 +42,5 @@ echo "Waiting a bit to copy SSL certificate in local..."
 sleep (15)
 
 sudo docker exec privatebin_withssl-container cat /etc/letsencrypt/live/$NEW_DOMAIN/fullchain.pem > etc/ssl/fullchain.pem
-sudo docker exec privatebin_withssl-container cat /etc/letsencrypt/live/privatebin.rainbowpartners.com/fullchain.pem > etc/ssl/fullchain.pem
+sudo docker exec privatebin_withssl-container cat /etc/letsencrypt/live/$NEW_DOMAIN/privkey.pem > etc/ssl/privkey.pem
 echo "SSL Certificate exported. Script ended."
