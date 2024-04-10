@@ -80,8 +80,8 @@ COPY etc/nginx/nginx.conf.new /etc/nginx/nginx.conf.bak
 COPY etc/supervisord.conf /etc/supervisord.conf
 
 # Copy scripts
-COPY /scripts/entrypoint.sh /entrypoint.sh
-COPY /scripts/ssl_keygen.sh /tmp/ssl_keygen.sh
+COPY etc/scripts/entrypoint.sh /entrypoint.sh
+COPY etc/scripts/ssl_keygen.sh /tmp/ssl_keygen.sh
 
 # Copy SSL keys /!\ Make sure you have those fils, it can be an old key or an invalid one, but each time
 # you launch the Docker, it'll generate a new SSL Key. Watch out to rate limits.
